@@ -1,0 +1,187 @@
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased;
+}
+
+/* ---------- ตัวหนังสือนีออน ---------- */
+
+.neon-title {
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #fff;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 10px #ff6ae1,
+    0 0 22px #ff2bd1,
+    0 0 44px #a855f7,
+    0 0 80px #6366f1;
+  animation: neon-flicker 5s infinite;
+}
+
+.neon-sub {
+  color: #a5f3fc;
+  letter-spacing: 0.32em;
+  text-shadow:
+    0 0 6px #22d3ee,
+    0 0 18px #06b6d4,
+    0 0 34px #0891b2;
+}
+
+@keyframes neon-flicker {
+  0%,
+  16%,
+  20%,
+  24%,
+  52%,
+  56%,
+  100% {
+    opacity: 1;
+  }
+  18%,
+  22%,
+  54% {
+    opacity: 0.68;
+  }
+}
+
+/* ---------- ไฟนีออนรอบการ์ดนัดชิง ---------- */
+
+.final-neon {
+  animation: final-glow 2.2s ease-in-out infinite;
+}
+
+@keyframes final-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 8px rgba(236, 72, 153, 0.85),
+      0 0 26px rgba(236, 72, 153, 0.5),
+      inset 0 0 14px rgba(236, 72, 153, 0.22);
+    border-color: rgba(244, 114, 182, 0.9);
+  }
+  50% {
+    box-shadow:
+      0 0 12px rgba(34, 211, 238, 0.9),
+      0 0 40px rgba(168, 85, 247, 0.6),
+      inset 0 0 20px rgba(168, 85, 247, 0.3);
+    border-color: rgba(103, 232, 249, 0.9);
+  }
+}
+
+/* วงแสงหมุนหลังการ์ดนัดชิง */
+.final-halo {
+  background: conic-gradient(
+    from 0deg,
+    rgba(236, 72, 153, 0.55),
+    rgba(168, 85, 247, 0.15),
+    rgba(34, 211, 238, 0.55),
+    rgba(168, 85, 247, 0.15),
+    rgba(236, 72, 153, 0.55)
+  );
+  filter: blur(14px);
+  animation: halo-spin 6s linear infinite;
+}
+
+@keyframes halo-spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+/* ---------- ฉลองแชมป์ ---------- */
+
+.champ-backdrop {
+  animation: fade-in 0.35s ease-out both;
+}
+
+.champ-pop {
+  animation: champ-pop 0.75s cubic-bezier(0.2, 0.85, 0.25, 1.4) both;
+}
+
+.champ-ring {
+  background: conic-gradient(
+    from 0deg,
+    #f472b6,
+    #a855f7,
+    #22d3ee,
+    #facc15,
+    #f472b6
+  );
+  animation: halo-spin 3.5s linear infinite;
+}
+
+.champ-beam {
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(255, 255, 255, 0.14) 0deg 6deg,
+    transparent 6deg 18deg
+  );
+  animation: halo-spin 14s linear infinite;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -8vh;
+  border-radius: 2px;
+  animation-name: confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(115vh) rotate(720deg);
+    opacity: 0.9;
+  }
+}
+
+@keyframes champ-pop {
+  0% {
+    transform: scale(0.4) rotate(-8deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neon-title,
+  .final-neon,
+  .final-halo,
+  .champ-pop,
+  .champ-ring,
+  .champ-beam,
+  .confetti-piece,
+  .champ-backdrop {
+    animation: none !important;
+  }
+}
