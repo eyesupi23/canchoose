@@ -49,7 +49,7 @@ export default function App() {
       </h1>
 
       <p className="mt-1 text-center text-[11px] tracking-widest text-slate-600 lg:hidden">
-        ← เลื่อนดูผังได้ทุกทิศ →
+        ← เลื่อนซ้ายขวาสำหรับดูผัง มีทั้งหมด 16 คู่ →
       </p>
 
       <main
