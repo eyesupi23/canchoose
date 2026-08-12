@@ -44,8 +44,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 py-5 sm:py-8">
-      <h1 className="neon-title px-4 text-center text-2xl uppercase sm:text-4xl lg:text-5xl">
-        Choose your love
+      <h1 className="neon-title px-4 pb-10 text-center text-2xl uppercase sm:text-4xl lg:text-5xl">
+        SABOKI’s Best Character in Readers’ Hearts
       </h1>
 
       <p className="mt-1 text-center text-[11px] tracking-widest text-slate-600 lg:hidden">
